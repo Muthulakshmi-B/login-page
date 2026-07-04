@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Retail Psychology Simulator</title>
+    <!-- Bootstrap 5 for professional styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <!-- Header -->
+    <nav class="navbar navbar-dark bg-danger mb-4">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">🧠 The Retail Psychology & Live API Simulator</span>
+        </div>
+    </nav>
+
+    <div class="container" id="main-content">
+        <!-- GLOBAL APP LOADER (Visible only while fetching API data) -->
+        <div id="api-loader" class="text-center my-5">
+            <div class="spinner-border text-danger" role="status" style="width: 3rem; height: 3rem;"></div>
+            <p class="text-muted mt-2">Connecting to live retail stock servers...</p>
+        </div>
+
+        <!-- MAIN INTERFACE (Hidden until API loads successfully) -->
+        <div class="row d-none" id="simulator-interface">
+            <!-- LEFT COLUMN: Control Panel -->
+            <div class="col-md-5 mb-4">
+                <div class="card shadow-sm p-4">
+                    <h4 class="h5 mb-3 text-danger">Activate Retail Tricks</h4>
+                    <p class="text-muted small">Toggle these common e-commerce tricks to see how they change user behavior and pricing math.</p>
+                    
+                    <hr>
+
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" id="scarcity-toggle">
+                        <label class="form-check-input-label fw-bold" for="scarcity-toggle">High Scarcity Pressure</label>
+                        <div class="text-muted small">Creates artificial urgency to prevent price comparison.</div>
+                    </div>
+
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" id="drip-toggle">
+                        <label class="form-check-input-label fw-bold" for="drip-toggle">Drip Pricing (Hidden Fees)</label>
+                        <div class="text-muted small">Hides service fees and protection plans until the final checkout screen.</div>
+                    </div>
+
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" id="social-toggle">
+                        <label class="form-check-input-label fw-bold" for="social-toggle">Artificial Stock Scarcity</label>
+                        <div class="text-muted small">Triggers a fake "low inventory" warning to force an immediate checkout.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: The Live API Store Item -->
+            <div class="col-md-7">
+                <div class="card shadow-sm p-4 mb-4 position-relative">
+                    
+                <!-- THE LIVE BANNER -->
+                    <div id="urgency-banner" class="alert alert-warning d-none text-center fw-bold small">
+                        ⏳ Hurry! Offer expires in <span id="timer">05:00</span>. Don't miss out!
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-sm-4 text-center">
+                            <img id="product-img" src="" class="img-fluid rounded border bg-white" style="max-height: 150px; object-fit: contain;">
+                        </div>
+                        <div class="col-sm-8">
+                            <span class="badge bg-dark mb-1" id="product-category">Category</span>
+                            <h3 class="h4" id="product-title">Loading Product...</h3>
+                            <p class="text-muted small mb-1">Base Retail Value: <span id="base-price-label">$0.00</span></p>
+                            <h2 class="text-success fw-bold" id="live-price">$0.00</h2>
+                        </div>
+                    </div>
+
+                    <!-- DYNAMIC LOW STOCK ALERT -->
+                    <div id="social-proof-toast" class="alert alert-danger d-none mt-3 py-2 small fw-bold text-center">
+                        🚨 Hurry! Only <span id="stock-count">3</span> items left in stock. Don't miss this chance!
+                    </div>
+
+                    <hr>
+
+                    <!-- LIVE INVOICE BREAKDOWN -->
+                    <h5 class="h6 text-uppercase fw-bold text-secondary">Final Checkout Breakdown</h5>
+                    <div class="d-flex justify-content-between small text-muted my-1">
+                        <span>Items Subtotal:</span>
+                        <span id="subtotal-label">$0.00</span>
+                    </div>
+                    <div class="d-flex justify-content-between small text-muted my-1 d-none" id="fee-row">
+                        <span class="text-danger">⚠️ Automated Shipping Insurance & Vendor Fee:</span>
+                        <span id="fee-label">$0.00</span>
+                    </div>
+                    <div class="d-flex justify-content-between fw-bold fs-5 mt-2 pt-2 border-top">
+                        <span>Total Consumer Cost:</span>
+                        <span id="total-label">$0.00</span>
+                    </div>
+
+                    <button class="btn btn-danger w-100 mt-4 py-2 fw-bold">Proceed to Buy</button>
+                </div>
+                
+                <!-- METRIC EXPLANATION PANEL -->
+                <div class="card p-3 bg-dark text-white border-0">
+                    <h6 class="text-warning mb-1">📊 Commerce Metric Analysis:</h6>
+                    <p class="small mb-0 text-secondary" id="analysis-text">Evaluating data architecture...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script connection -->
+    <script src="app.js"></script>
+</body>
+</html>
