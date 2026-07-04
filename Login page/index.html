@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Login</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Aurora Background -->
+    <div class="background">
+        <span class="blob blob1"></span>
+        <span class="blob blob2"></span>
+        <span class="blob blob3"></span>
+        <span class="blob blob4"></span>
+    </div>
+
+    <!-- Mouse Glow -->
+    <div class="cursor-glow"></div>
+
+    <!-- Login Card -->
+    <div class="container">
+
+        <div class="logo">
+            L
+        </div>
+
+        <h1>Welcome Back</h1>
+
+        <p>Sign in to continue</p>
+
+        <form id="loginForm">
+
+            <div class="input-box">
+
+                <input
+                    type="text"
+                    id="username"
+                    required
+                >
+
+                <label>Username</label>
+
+            </div>
+
+            <div class="input-box">
+
+                <input
+                    type="password"
+                    id="password"
+                    required
+                >
+
+                <label>Password</label>
+
+                <span
+                    class="toggle-password"
+                    id="togglePassword">
+                    👁
+                </span>
+
+            </div>
+
+            <div class="options">
+
+                <label>
+
+                    <input type="checkbox">
+
+                    Remember Me
+
+                </label>
+
+                <a href="#">
+                    Forgot?
+                </a>
+
+            </div>
+
+            <button type="submit">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <div class="divider">
+
+            <span>OR</span>
+
+        </div>
+
+        <button class="secondary">
+
+            Create Account
+
+        </button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

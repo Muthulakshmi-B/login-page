@@ -1,0 +1,544 @@
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#08111f;
+}
+
+/* ==========================================
+   ANIMATED AURORA BACKGROUND
+========================================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    135deg,
+    #08111f,
+    #111827,
+    #0f172a);
+
+    z-index:-3;
+}
+
+/* ==========================================
+   FLOATING BLOBS
+========================================== */
+
+.blob{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    opacity:.75;
+
+    animation:float 18s ease-in-out infinite;
+}
+
+.blob1{
+
+    width:320px;
+    height:320px;
+
+    background:#6C63FF;
+
+    top:-80px;
+    left:-60px;
+}
+
+.blob2{
+
+    width:280px;
+    height:280px;
+
+    background:#00D4FF;
+
+    right:-80px;
+    top:80px;
+
+    animation-delay:4s;
+}
+
+.blob3{
+
+    width:350px;
+    height:350px;
+
+    background:#8B5CF6;
+
+    bottom:-120px;
+    left:25%;
+
+    animation-delay:8s;
+}
+
+.blob4{
+
+    width:250px;
+    height:250px;
+
+    background:#14F195;
+
+    right:15%;
+    bottom:-60px;
+
+    animation-delay:12s;
+}
+
+/* ==========================================
+   FLOAT ANIMATION
+========================================== */
+
+@keyframes float{
+
+0%{
+
+transform:
+translate(0,0)
+scale(1);
+}
+
+25%{
+
+transform:
+translate(40px,-30px)
+scale(1.1);
+}
+
+50%{
+
+transform:
+translate(-30px,40px)
+scale(.9);
+}
+
+75%{
+
+transform:
+translate(25px,25px)
+scale(1.05);
+}
+
+100%{
+
+transform:
+translate(0,0)
+scale(1);
+}
+
+}
+
+/* ==========================================
+   MOUSE GLOW
+========================================== */
+
+.cursor-glow{
+
+    position:fixed;
+
+    width:250px;
+    height:250px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    filter:blur(80px);
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    transition:
+    left .15s linear,
+    top .15s linear;
+
+    z-index:-1;
+}
+
+/* ==========================================
+   LOGIN CARD
+========================================== */
+
+.container{
+
+    width:430px;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.35);
+
+    animation:cardLoad 1s ease;
+
+    position:relative;
+}
+
+/* ==========================================
+   CARD ANIMATION
+========================================== */
+
+@keyframes cardLoad{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(50px)
+scale(.9);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+translateY(0)
+scale(1);
+
+}
+
+}
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo{
+
+    width:75px;
+    height:75px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+    135deg,
+    #6C63FF,
+    #00D4FF);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    box-shadow:
+    0 10px 30px rgba(108,99,255,.4);
+
+    margin-bottom:25px;
+}
+
+/* ==========================================
+   TEXT
+========================================== */
+
+h1{
+
+    color:white;
+
+    text-align:center;
+
+    margin-bottom:10px;
+}
+
+p{
+
+    color:#d9d9d9;
+
+    text-align:center;
+
+    margin-bottom:35px;
+}
+
+/* ==========================================
+   INPUT BOX
+========================================== */
+
+.input-box{
+
+    position:relative;
+
+    margin-bottom:28px;
+}
+
+.input-box input{
+
+    width:100%;
+
+    height:55px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    padding:18px 18px 18px 18px;
+
+    font-size:16px;
+
+    transition:.35s;
+}
+
+/* Glow on Focus */
+
+.input-box input:focus{
+
+    box-shadow:
+    0 0 20px rgba(0,212,255,.45);
+
+    background:rgba(255,255,255,.12);
+}
+
+/* ==========================================
+   FLOATING LABEL
+========================================== */
+
+.input-box label{
+
+    position:absolute;
+
+    left:18px;
+
+    top:17px;
+
+    color:#cfcfcf;
+
+    pointer-events:none;
+
+    transition:.3s;
+}
+
+.input-box input:focus+label,
+.input-box input:valid+label{
+
+    top:-10px;
+
+    left:15px;
+
+    font-size:12px;
+
+    background:#08111f;
+
+    padding:2px 8px;
+
+    border-radius:20px;
+
+    color:#00D4FF;
+}
+
+/* ==========================================
+   PASSWORD EYE
+========================================== */
+
+.toggle-password{
+
+    position:absolute;
+
+    right:18px;
+
+    top:17px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    color:white;
+}
+
+/* ==========================================
+   OPTIONS
+========================================== */
+
+.options{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:white;
+
+    margin-bottom:28px;
+
+    font-size:14px;
+}
+
+.options a{
+
+    text-decoration:none;
+
+    color:#00D4FF;
+}
+
+.options a:hover{
+
+    text-decoration:underline;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+button{
+
+    width:100%;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    transition:.35s;
+
+    margin-bottom:18px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #6C63FF,
+    #00D4FF);
+
+    color:white;
+}
+
+button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 15px 35px rgba(0,212,255,.4);
+}
+
+.secondary{
+
+    background:transparent;
+
+    border:1px solid rgba(255,255,255,.2);
+}
+
+/* ==========================================
+   DIVIDER
+========================================== */
+
+.divider{
+
+    text-align:center;
+
+    color:white;
+
+    margin:25px 0;
+}
+
+.divider span{
+
+    position:relative;
+}
+
+.divider span::before,
+.divider span::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+
+    height:1px;
+
+    background:rgba(255,255,255,.25);
+
+    top:50%;
+}
+
+.divider span::before{
+
+    right:45px;
+}
+
+.divider span::after{
+
+    left:45px;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:500px){
+
+.container{
+
+width:92%;
+
+padding:30px;
+
+}
+
+.logo{
+
+width:65px;
+height:65px;
+font-size:28px;
+
+}
+
+h1{
+
+font-size:28px;
+
+}
+
+}
